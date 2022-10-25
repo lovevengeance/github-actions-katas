@@ -23,7 +23,7 @@ jobs:
           name: code
           path: .
       - name: build
-        run: chmod +x ci/build-app.sh && ci/build-app.sh
+        run: ci/build-app.sh
   Test:
     needs: Clone-down
     runs-on:
@@ -35,8 +35,7 @@ jobs:
           name: code
           path: .
       - name: test
-        run: ci/unit-test-app.sh && ci/unit-test-app.sh
-
+        run: ci/unit-test-app.sh
 
 
       
