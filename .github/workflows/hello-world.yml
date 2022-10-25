@@ -1,4 +1,4 @@
-name: hello-world
+name: JAVA CI
 on: push
 jobs:
   Clone-down:
@@ -23,10 +23,10 @@ jobs:
           name: code
           path: .
       - name: build
-        run: ci/build-app.sh
+        run: chmod +x ci/build-app.sh && ci/build-app.sh
   Test:
     needs: Clone-down
-    runs-on:
+    runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
       - name: Download code
@@ -35,7 +35,7 @@ jobs:
           name: code
           path: .
       - name: test
-        run: ci/unit-test-app.sh
+        run: chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh
 
 
       
